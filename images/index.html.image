@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Application Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Flask Application Information</h1>
+        <div class="info-block">
+            <div class="info-row">
+                <span class="info-label">Python version:</span>
+                <span class="info-value">{{ python_version }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Pip version:</span>
+                <span class="info-value">{{ pip_version }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Flask version:</span>
+                <span class="info-value">{{ flask_version }}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
