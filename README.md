@@ -8,7 +8,7 @@
 name/
 ├── app.py                 # Основной файл приложения
 ├── templates/
-│   ├── index.html        # Страница входа/регистрации
+│   └── index.html        # Страница входа/регистрации
 ├── static/
 │   └── styles/
 │   │   └── styles.css
