@@ -33,7 +33,7 @@ Texttable больше не используется в приложении, с
 Исправлен путь ```/static/styles.css``` в index.html
 Теперь путь выглядит так: ```/static/styles/styles.css```
 
-# Версия ```0.1.2```
+### Версия ```0.1.2```
 Изменено поведение 
 ```bash
 create-flask info
@@ -44,12 +44,12 @@ create-flask info
 ```bash
 create-flask --help
 ```
-# Версия ```0.1```
+### Версия ```0.1```
 
 Пока что проект находится на стадии разработки, не до конца доведена возможность создания venv для python. 
 Также приложение работает с python не ниже 3.12.*! Проверено на MacOS macOS 15.6.1 24G90 arm64 и на Arch Linux.
 
-# 3. Устновка и использование
+### 3. Устновка и использование
 Клонируйте репозиторий и запустите installer.py
 ```bash
 git clone https://github.com/terrachell/create_flask.git
