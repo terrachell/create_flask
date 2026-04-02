@@ -13,10 +13,17 @@ if int(sys.version.split()[0].split('.')[1]) < 12:
 for arg in sys.argv:
     if arg == __file__:
         continue
-    if arg == "info":
-        print("""-> Flask-creater version 1.0
+    if arg == "--help":
+        print("""
 -> Протестированно на версии python 3.12.9.
--> Протестированно на OS: macOS 15.6.1 24G90 arm64""")
+-> Протестированно на OS: macOS 15.6.1 24G90 arm64 и Arch Linux (Linux)
+
+-> Flask-creater          | version 0.1
+-> Доступные аргументы    |
+1. --venv-reload          | Перезагрузит venv (возможно использование с аргументом <name>)
+2. --help                 | Покажет информацию о программе
+3. <name>                 | Создаст директорию <name> и продолжит работу в ней
+""")
         sys.exit(2)
     if "-" not in arg:
         try:
