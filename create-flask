@@ -3,6 +3,7 @@ import sys
 from os import listdir, getcwd, path, mkdir, system
 sd = path.dirname(path.abspath(__file__))
 cwd = getcwd()
+
 if int(sys.version.split()[0].split('.')[1]) < 12:
     print("Для работы скрипта нужен python версии не менее 3.12.X")
     sys.exit(1)
