@@ -26,16 +26,12 @@ styles.css
 ## 2. Версии проекта
 Текущая версия ```0.1.2```
 Изменено поведение 
-```
+```bash
 create-flask info
 ```
 Теперь создает проект с названием ```info```
 
-Вместо
-```bash
-create-flask info
-```
-Теперь используется
+Вместо этого аргумента теперь используется
 ```bash
 create-flask --help
 ```
@@ -45,8 +41,9 @@ create-flask --help
 Также приложение работает с python не ниже 3.12.*! Проверено на MacOS macOS 15.6.1 24G90 arm64 и на Arch Linux.
 
 # 3. Устновка и использование
-Запустите installer.py
+Клонируйте репозиторий и запустите installer.py
 ```bash
+git clone https://github.com/terrachell/create_flask.git
 cd create_flask
 python3 installer.py
 ```
@@ -59,6 +56,7 @@ create-flask
 ```
 
 Данная команда начнет создание проекта в текущей директории
+
 Для выбора определенной директории её нужно прописать
 ```bash
 create-flask <name>
