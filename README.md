@@ -10,7 +10,7 @@ name/
 ├── templates/
 │   └── index.html        # Страница входа/регистрации
 ├── static/
-│   └── styles/
+│   ├── styles/
 │   │   └── styles.css
 │   └── js/
 └────── └── main.js       # Клиентская логика
