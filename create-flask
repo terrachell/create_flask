@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+import sys
+from texttable import Texttable
+from os import listdir, getcwd, path, mkdir, system
+texttable = Texttable(30)
+texttable.header(['Файл', 'Тип'])
+sd = path.dirname(path.abspath(__file__))
+done = ""
+cwd = getcwd()
+if int(sys.version.split()[0].split('.')[1]) < 12:
+    print("Для работы скрипта нужен python версии не менее 3.12.X")
+    sys.exit(1)
+for arg in sys.argv:
+    if arg == __file__:
+        continue
+    if arg == "info":
+        print("""-> Flask-creater version 1.0
+-> Протестированно на версии python 3.12.9.
+-> Протестированно на OS: macOS 15.6.1 24G90 arm64""")
+        sys.exit(2)
+    if "-" not in arg:
+        try:
+            mkdir(arg)
+        except Exception as e:
+            print("Директория существует, продолжаю...")
+        cwd += f"/{arg}"
+    if arg == "--venv-reload": 
+        system(f"cd {cwd} && python3 -m venv env && source ./env/bin/activate && pip install flask")
+
+if not path.exists(f"{cwd}/env"):
+    system(f"cd {cwd} && python3 -m venv env && source ./env/bin/activate && pip install flask")
+
+images = listdir(f"{sd}/images")
+for img in images:
+    with open(f"{sd}/images/{img}") as file:
+        text = file.read()
+    type_img = img.split(".")[1]
+    name = img.split(".")[0]
+    match type_img:
+        case "html":
+            if not path.exists(f"{cwd}/templates"):
+                mkdir(f"{cwd}/templates")
+                with open(f"{cwd}/templates/{name}.{type_img}", "w") as file:
+                    file.write(text)
+                    done = 1
+                    texttable.add_row(["index.html", "Разметка страницы"])
+        case "css":
+            if not path.exists(f"{cwd}/static/styles"):
+                mkdir(f"{cwd}/static")
+                mkdir(f"{cwd}/static/styles")
+                with open(f"{cwd}/static/styles/{name}.{type_img}", "w") as file:
+                    file.write(text)
+                    done = 1
+                    texttable.add_row(["styles.css", "Таблица стилей"])
+        case "py":
+            if not path.exists(f"{cwd}/app.py"):
+                with open(f"{cwd}/{name}.{type_img}", "w") as file:
+                    file.write(text)
+                    done = 1
+                    texttable.add_row(["app.py", "Python-script"])
+
+if not path.exists(f"{cwd}/static/js"): mkdir(f"{cwd}/static/js")
+if not path.exists(f"{cwd}/static/fonts"): mkdir(f"{cwd}/static/fonts")
+if not path.exists(f"{cwd}/static/images"): mkdir(f"{cwd}/static/images")
+open(f"{cwd}/static/js/main.js", "w").close()
+if done: print("Установка завершена!"); print(f"-> Создано:\n{texttable.draw()}"); print("-> Запускается сервер")
+else: print("-> Запускается сервер")
+run_args = input("-> Введите аргументы для запуска\n-> Оставьте поле пустым для завершения\n-> <порт <(1024-65535)> <дебагмод (0/1)>\n<- ")
+if run_args:
+    system(f"python3 {cwd}/app.py {run_args}")
