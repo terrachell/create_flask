@@ -59,7 +59,7 @@ create-flask --help
 ```bash
 git clone https://github.com/terrachell/create_flask.git
 cd create_flask
-python3 installer.py
+python3 installer.py # Только для UNIX-подобных систем!
 ```
 
 После чего приложение Вас оповестит об успешной установке
